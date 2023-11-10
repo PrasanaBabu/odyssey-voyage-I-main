@@ -1,13 +1,11 @@
-extend schema
-@link(url: "https://specs.apollo.dev/federation/v2.5",
-  import: ["@key"])
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.5",  import: ["@key"])
 
 type Query {
   "The three latest reviews submitted for FlyBy's locations"
   latestReviews: [Review!]!
 }
 
-type Review {
+type Review @key(fields: "id") {
   id: ID!
   "Written text"
   comment: String
