@@ -11,6 +11,12 @@ type Review @key(fields: "id") {
   comment: String
   "A number from 1 - 5 with 1 being lowest and 5 being highest"
   rating: Int
+  "Returns the location that this review is for"
+    location: Location
+}
+
+type Location @key(fields: "id", resolvable: false){
+  id: ID!
 }
 
 type Mutation {
